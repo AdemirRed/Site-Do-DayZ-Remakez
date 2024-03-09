@@ -179,6 +179,7 @@ p {
     color: red;
     left: 337px;
     font-size: 36px;
+    cursor: pointer;
 }
 
 footer {
