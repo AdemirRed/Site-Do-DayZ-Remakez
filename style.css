@@ -87,7 +87,7 @@ button:active{
     width: 25vw;
 }
 
-#welcome-message {
+.welcome-message {
     color: black;
     text-align: left;
     padding: 20px;
@@ -95,7 +95,7 @@ button:active{
     margin: 25px auto;
 }
 
-#welcome-message h2 {
+.welcome-message h2 {
     font-size: 28px;
     margin-bottom: 15px;
 }
@@ -110,9 +110,9 @@ h2 {
     font-weight: bold;
 }
 
-#welcome-message p, 
-#welcome-message ul, 
-#welcome-message li {
+.welcome-message p, 
+.welcome-message ul, 
+.welcome-message li {
     font-size: 18px;
     margin-bottom: 15px;
 }
@@ -132,7 +132,7 @@ p {
     padding-right: 300px; /* Recuo de 15 pixels do lado esquerdo */
     text-align: center;
 }
-#welcome-message ul li:before {
+.welcome-message ul li:before {
     content: "•"; /* Definir um bullet point personalizado */
     margin-right: 10px; /* Espaço entre o bullet point e o texto */
 }
