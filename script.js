@@ -11,7 +11,6 @@ function openVideoPopup() {
         closeVideoPopup();
     });
 
-    
 }
 
 // Função para fechar o pop-up do vídeo
@@ -25,8 +24,6 @@ function closeVideoPopup() {
 
 
 closeVideoPopup()
-
-
 // Script para desativar elementos após 10 segundos de inatividade
 let idleTime = 0; // Tempo de inatividade em segundos
 const classesDesativar = ["background-image", "cabecalho", "welcome-message"]; // Classes dos elementos CSS
@@ -34,9 +31,11 @@ const classesDesativar = ["background-image", "cabecalho", "welcome-message"]; /
 document.addEventListener("mousemove", () => {
   idleTime = 0; // Reinicia o tempo de inatividade a cada movimento do mouse
 
-  // Muta novamente o vídeo
-  const video = document.querySelector('.caixa-video video');
-  video.muted = true;
+  // Verifica se o pop-up do vídeo está aberto antes de mutar o vídeo
+  const videoFrame = document.getElementById("video-frame");
+  if (videoFrame && !videoFrame.paused) {
+    videoFrame.muted = true;
+  }
 });
 
 document.addEventListener("keydown", () => {
@@ -46,7 +45,7 @@ document.addEventListener("keydown", () => {
 setInterval(() => {
   idleTime++; // Incrementa o tempo de inatividade a cada segundo
 
-  if (idleTime >= 3) { // Desativa elementos após 10 segundos de inatividade
+  if (idleTime >= 10) { // Desativa elementos após 10 segundos de inatividade
     classesDesativar.forEach((className) => {
       const elements = document.getElementsByClassName(className);
       Array.from(elements).forEach((element) => {
@@ -57,8 +56,10 @@ setInterval(() => {
     });
 
     // Ativar o som do vídeo
-    const video = document.querySelector('.caixa-video video');
-    video.muted = false;
+    const videoFrame = document.getElementById("video-frame");
+    if (videoFrame && !videoFrame.paused) {
+      videoFrame.muted = false;
+    }
   } else { // Reativa elementos se houver atividade
     classesDesativar.forEach((className) => {
       const elements = document.getElementsByClassName(className);
@@ -70,4 +71,3 @@ setInterval(() => {
     });
   }
 }, 1000); // Verifica a cada segundo
-
