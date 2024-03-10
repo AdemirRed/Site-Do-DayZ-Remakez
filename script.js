@@ -27,21 +27,22 @@ function closeVideoPopup() {
 closeVideoPopup()
 
 
+
 // Script para desativar elementos após 5 segundos de inatividade
-    let idleTime = 0; // Tempo de inatividade em segundos
-    const elementosDesativar = ["background-image", "cabecalho", "welcome-message"]; // IDs dos elementos CSS
+let idleTime = 0; // Tempo de inatividade em segundos
+const elementosDesativar = ["background-image", "cabecalho", "welcome-message"]; // IDs dos elementos CSS
 
-    document.addEventListener("mousemove", () => {
-      idleTime = 0; // Reinicia o tempo de inatividade a cada movimento do mouse
-    });
+document.addEventListener("mousemove", () => {
+  idleTime = 0; // Reinicia o tempo de inatividade a cada movimento do mouse
+});
 
-    document.addEventListener("keydown", () => {
-      idleTime = 0; // Reinicia o tempo de inatividade a cada pressionamento de tecla
-    });
+document.addEventListener("keydown", () => {
+  idleTime = 0; // Reinicia o tempo de inatividade a cada pressionamento de tecla
+});
 
-    setInterval(() => {
-      idleTime++; // Incrementa o tempo de inatividade a cada segundo
+setInterval(() => {
+  idleTime++; // Incrementa o tempo de inatividade a cada segundo
 
-      if (idleTime >= 5) { // Desativa elementos após 5 segundos de inatividade
-        elementosDesativar.forEach((id) => {
-          document.getElementById(id).style.pointerEvents = "none"; // Desativa a interação com o elemento
+  if (idleTime >= 5) { // Desativa elementos após 5 segundos de inatividade
+    elementosDesativar.forEach((id) => {
+      document.getElementById(id).style.pointerEvents = "none"; // Desativa a interação com o elemento
