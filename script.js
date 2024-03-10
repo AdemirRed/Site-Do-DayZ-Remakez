@@ -24,6 +24,7 @@ function closeVideoPopup() {
 
 
 closeVideoPopup()
+
 // Script para desativar elementos após 10 segundos de inatividade
 let idleTime = 0; // Tempo de inatividade em segundos
 const classesDesativar = ["background-image", "cabecalho", "welcome-message"]; // Classes dos elementos CSS
@@ -31,11 +32,9 @@ const classesDesativar = ["background-image", "cabecalho", "welcome-message"]; /
 document.addEventListener("mousemove", () => {
   idleTime = 0; // Reinicia o tempo de inatividade a cada movimento do mouse
 
-  // Verifica se o pop-up do vídeo está aberto antes de mutar o vídeo
-  const videoFrame = document.getElementById("video-frame");
-  if (videoFrame && !videoFrame.paused) {
-    videoFrame.muted = true;
-  }
+  // Muta novamente o vídeo
+  const video = document.querySelector('.caixa-video video');
+  video.muted = true;
 });
 
 document.addEventListener("keydown", () => {
@@ -56,10 +55,8 @@ setInterval(() => {
     });
 
     // Ativar o som do vídeo
-    const videoFrame = document.getElementById("video-frame");
-    if (videoFrame && !videoFrame.paused) {
-      videoFrame.muted = false;
-    }
+    const video = document.querySelector('.caixa-video video');
+    video.muted = false;
   } else { // Reativa elementos se houver atividade
     classesDesativar.forEach((className) => {
       const elements = document.getElementsByClassName(className);
