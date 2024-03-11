@@ -27,7 +27,7 @@ closeVideoPopup()
 
 // Script para desativar elementos após 10 segundos de inatividade
 let idleTime = 0; // Tempo de inatividade em segundos
-const classesDesativar = ["background-image", "cabecalho", "welcome-message"]; // Classes dos elementos CSS
+const classesDesativar = ["background-image", "cabecalho", "welcome-message", "mascara"]; // Classes dos elementos CSS
 
 document.addEventListener("mousemove", () => {
   idleTime = 0; // Reinicia o tempo de inatividade a cada movimento do mouse
